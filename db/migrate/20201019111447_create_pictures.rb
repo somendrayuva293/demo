@@ -1,4 +1,5 @@
-class CreatePictures < ActiveRecord::Migration[6.0]
+	class CreatePConfiguration and Adding new JavaScript and CSS
+ictures < ActiveRecord::Migration[6.0]
   def change
     create_table :pictures do |t|
       t.string :name

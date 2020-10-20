@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_19_111447) do
+ActiveRecord::Schema.define(version: 2020_10_20_075806) do
 
   create_table "assemblies", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -32,10 +32,25 @@ ActiveRecord::Schema.define(version: 2020_10_19_111447) do
     t.index ["part_id"], name: "index_assembly_parts_on_part_id"
   end
 
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "employees", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.string "notable_type", null: false
+    t.integer "notable_id", null: false
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["notable_type", "notable_id"], name: "index_notes_on_notable_type_and_notable_id"
   end
 
   create_table "parts", force: :cascade do |t|
@@ -56,6 +71,13 @@ ActiveRecord::Schema.define(version: 2020_10_19_111447) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "workers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
