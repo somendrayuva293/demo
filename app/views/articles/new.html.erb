@@ -1,0 +1,32 @@
+<%#<%= form_with scope: :article,url: articles_path local: true do |form| %>
+ <!--  <p>
+    <%#= form.label :title %><br>
+    <%#= form.text_field :title %>
+  </p>
+ 
+  <p>
+    <%#= form.label :text %><br>
+    <%#= form.text_area :text %>
+  </p>
+ 
+  <p>
+    <%#= form.submit %>
+  </p>
+<%# end %> -->
+<%= form_with(url: "/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<%= check_box_tag(:pet_dog) %>
+<%= label_tag(:pet_dog, "I own a dog") %>
+<%= check_box_tag(:pet_cat) %>
+<%= label_tag(:pet_cat, "I own a cat") %>
+
+<%= radio_button_tag(:age, "child") %>
+<%= label_tag(:age_child, "I am younger than 21") %>
+<%= radio_button_tag(:age, "adult") %>
+<%= label_tag(:age_adult, "I am over 21") %>
+
+
